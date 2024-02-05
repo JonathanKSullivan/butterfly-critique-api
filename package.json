@@ -1,11 +1,74 @@
 {
+  "name": "butterfly-api-homework",
+  "version": "1.0.0",
+  "description": "An API for butterflies",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node src/app.js",
+    "watch": "nodemon src/app.js",
+    "init-db": "node scripts/init-db.js",
+    "lint": "eslint .",
+    "test": "npm run lint && jest",
+    "test-watch": "jest --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapbox/butterfly-api-homework.git"
+  },
+  "author": "mapbox",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mapbox/butterfly-api-homework/issues"
+  },
+  "homepage": "https://github.com/mapbox/butterfly-api-homework#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "@mapbox/fusspot": "^0.8.0",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "lowdb": "^1.0.0",
+    "morgan": "^1.10.0",
+    "node-mocks-http": "^1.14.1",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "@mapbox/eslint-config-mapbox": "^2.0.1",
+    "eslint-plugin-jest": "^27.6.3",
+    "eslint-plugin-node": "^9.1.0",
+    "jest": "^26.6.3",
+    "nodemon": "^3.0.1",
+    "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "eslintConfig": {
+    "extends": "@mapbox/eslint-config-mapbox",
+    "overrides": [
+      {
+        "files": "test/**",
+        "env": {
+          "jest": true
+        }
+      }
+    ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov"
+    ],
+    "watchPathIgnorePatterns": [
+      "db.json"
+    ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.db.json"
+    ]
   }
 }

@@ -1,1 +1,28 @@
+# Dependency directories
 node_modules/
+yarn.lock
+package-lock.json
+
+# Database files that shouldn't be tracked
+butterflies.db.json
+
+# Coverage directory
+coverage/
+
+# IDE specific files and directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system generated files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Test databases
+test/integration/test.db.json
